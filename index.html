@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather_joy</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ADDED: Glassy Header -->
+    <header class="app-header">
+        <h1 class="app-title">Weather</h1>
+        <!-- ADDED: Music On/Off Button -->
+        <button id="music-toggle-btn" class="control-btn" aria-label="Toggle Music">
+            <svg id="icon-music-on" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+            <svg id="icon-music-off" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-x" style="display: none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+        </button>
+    </header>
+
+    <!-- Container for the video background -->
+    <div class="video-background">
+        <video autoplay muted loop id="bg-video"></video>
+    </div>
+
+    <!-- Audio player for weather sounds -->
+    <audio id="weather-audio" loop></audio>
+
+    <!-- Main container for the weather app -->
+    <div id="app-container" class="glass-container">
+        
+        <!-- Search bar section -->
+        <header class="search-section">
+            <input type="text" id="city-input" class="search-input" placeholder="Enter city name...">
+            <button id="search-btn" class="search-btn" aria-label="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+        </header>
+
+        <!-- ADDED: Popular cities navigation -->
+        <nav class="city-nav">
+            <a href="#" class="city-link">Kolkata</a>
+            <a href="#" class="city-link">Delhi</a>
+            <a href="#" class="city-link">Tokyo</a>
+            <a href="#" class="city-link">London</a>
+            <a href="#" class="city-link">Egypt</a>
+        </nav>
+
+        <!-- Loading spinner, hidden by default -->
+        <div id="loader" class="loader" style="display: none;"></div>
+
+        <!-- Error message display, hidden by default -->
+        <div id="error-message" class="error-message" style="display: none;"></div>
+
+        <!-- Main weather display section -->
+        <main id="weather-display" class="weather-display-section" style="display: none;">
+            <h1 id="city-name" class="city-name">City Name</h1>
+            <p id="weather-description" class="weather-description">Weather Condition</p>
+            <div class="temperature-container">
+                <div id="weather-icon" class="weather-icon"></div>
+                <p id="temperature" class="temperature">--°C</p>
+            </div>
+            <p id="date-time" class="date-time"></p>
+        </main>
+
+        <!-- Additional weather details -->
+        <footer id="weather-details" class="weather-details-section" style="display: none;">
+            <div class="detail-box">
+                <p class="detail-label">Humidity</p>
+                <p id="humidity" class="detail-value">--%</p>
+            </div>
+            <div class="detail-box">
+                <p class="detail-label">Wind Speed</p>
+                <p id="wind-speed" class="detail-value">-- m/s</p>
+            </div>
+            <div class="detail-box">
+                <p class="detail-label">Feels Like</p>
+                <p id="feels-like" class="detail-value">--°C</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Your custom JavaScript file -->
+    <script src="logic.js"></script>
+</body>
+</html>

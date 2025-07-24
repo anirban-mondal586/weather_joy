@@ -1,0 +1,131 @@
+/* Universal box-sizing for easier layout management */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* General body styling */
+body {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #fff;
+    background-color: #2D3748; /* Fallback color */
+    padding: 1rem; /* Provides safe space around the container on all screens */
+}
+
+/* MODIFIED: Clean Header Styles */
+.app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem clamp(1rem, 5vw, 2rem);
+    z-index: 10;
+    background: transparent; /* Removed glassy effect */
+}
+
+.app-title {
+    font-size: clamp(1.5rem, 5vw, 1.75rem);
+    font-weight: 500;
+    margin: 0;
+    /* MODIFIED: Changed color to semi-transparent white for a glassy look */
+    color: rgba(255, 255, 255, 0.9); 
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); /* Enhanced shadow for readability */
+}
+
+.control-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Video background container and element */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+#bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Main app container with glassmorphism effect */
+.glass-container {
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px) saturate(120%);
+    -webkit-backdrop-filter: blur(15px) saturate(120%);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 420px;
+    padding: clamp(1.5rem, 5vw, 2rem);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    text-align: center;
+    margin-top: 60px; /* Added margin to prevent overlap with fixed header */
+}
+
+/* Search section styling */
+.search-section {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem; /* Adjusted margin */
+}
+
+/* City navigation bar */
+.city-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.city-link {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.city-link:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.city-link.active {
+    background: rgba(255, 255, 255, 0.4);
+    font-weight: 500;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* --- Existing Styles (Unchanged) --- */
+.search-input{flex-grow:1;min-width:0;padding:.8rem 1rem;border:1px solid rgba(255,255,255,.3);border-radius:12px;background:rgba(255,255,255,.15);color:#fff;font-size:1rem;outline:0;transition:all .3s ease}.search-input::placeholder{color:rgba(255,255,255,.7)}.search-input:focus{background:rgba(255,255,255,.25);border-color:rgba(255,255,255,.7)}.search-btn{flex-shrink:0;width:45px;height:45px;border-radius:12px;border:none;background:rgba(255,255,255,.2);color:#fff;cursor:pointer;display:flex;justify-content:center;align-items:center;transition:background .3s ease}.search-btn:hover{background:rgba(255,255,255,.4)}.weather-display-section{margin-bottom:2rem}.city-name{font-size:clamp(1.75rem,8vw,2.5rem);font-weight:700;margin:0;text-shadow:2px 2px 4px rgba(0,0,0,.3);word-break:break-word}.weather-description{font-size:clamp(1rem,4vw,1.2rem);font-weight:500;margin:.5rem 0;text-transform:capitalize}.temperature-container{display:flex;justify-content:center;align-items:center;margin:1rem 0;gap:.5rem}.weather-icon{width:clamp(70px,25vw,100px);height:clamp(70px,25vw,100px)}.temperature{font-size:clamp(3.5rem,20vw,5rem);font-weight:700;margin:0;line-height:1}.date-time{font-size:clamp(.9rem,3vw,1rem);font-weight:400}.weather-details-section{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;background:rgba(0,0,0,.2);padding:1rem;border-radius:15px}.detail-box{text-align:center}.detail-label{font-size:.8rem;margin:0 0 .5rem;color:rgba(255,255,255,.8)}.detail-value{font-size:1.1rem;font-weight:500;margin:0}.loader{border:5px solid rgba(255,255,255,.3);border-radius:50%;border-top:5px solid #fff;width:50px;height:50px;animation:spin 1s linear infinite;margin:2rem auto}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}.error-message{background-color:rgba(255,82,82,.7);color:#fff;padding:1rem;border-radius:10px;margin:1rem 0}@media (max-width:360px){.weather-details-section{grid-template-columns:1fr;gap:1.5rem}.city-name{font-size:1.5rem}.temperature{font-size:3rem}.weather-icon{width:60px;height:60px}}
